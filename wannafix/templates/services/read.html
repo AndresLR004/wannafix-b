@@ -1,0 +1,27 @@
+{% extends 'layouts/_base.html' %}
+
+{% block title %}
+Servei {{ service.id }}
+{% endblock %}
+
+{% block content %}
+<ul>
+    <li>Nom: {{ service.title }}</li>
+    <li>Descripció: {{ service.description }}</li>
+    <li>Temps Dies: {{ service.duration_days }}</li>
+    <li>Temps Hora: {{ service.duration_hours }}</li>
+    <li>Preu: {{ service.price }}</li>
+</ul>
+<p><img src="/static/services/{{ service.photo }}" alt="{{ service.title }}" /></p>
+
+<a class="btn btn-outline-dark btn-xl" href="/services/list">&#x3c;&#x3c; Tornar al llistat</a>
+
+{% if current_user.is_action_allowed_to_service(Action.services_update, service) %}
+<a class="btn btn-warning btn-xl" href="/services/update/{{ service.id }}">Modificar servei</a>
+{% endif %}
+
+{% if current_user.is_action_allowed_to_service(Action.services_delete, service) %}
+<a class="btn btn-danger btn-xl" href="/services/delete/{{ service.id }}">Esborrar servei</a>
+{% endif %}
+
+{% endblock %}

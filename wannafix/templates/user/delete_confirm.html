@@ -1,0 +1,16 @@
+{% extends 'layouts/_base.html' %}
+
+{% block title %}
+Confirmar Eliminación
+{% endblock %}
+
+{% block content %}
+    <h2>Confirmar Eliminación</h2>
+    <p>Estás a punto de eliminar tu cuenta. Por favor, confirma esta acción.</p>
+    <p>Nombre de Usuario: {{ user.name }}</p>
+    <!-- Aquí podrías mostrar más detalles del usuario si lo deseas -->
+    <form action="{{ url_for('user_bp.confirm_delete_user', user_id=user.id) }}" method="POST">
+        <input type="hidden" name="confirmation_phrase" value="{{ request.form.get('confirmation_phrase') }}">
+        <button type="submit">Confirmar Eliminación</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'layouts/_base.html' %}
+{% from "partials/_formhelpers.html" import render_errors %}
+
+{% block title %}
+Eliminar servicio {{ service.id }}
+{% endblock %}
+
+{% block content %}
+<p>¿Estás seguro de que deseas eliminar el servicio "{{ service.title }}"?</p>
+<p><img src="/static/services/{{ service.photo }}" alt="{{ service.title }}" /></p>
+
+<form action="/services/delete/{{ service.id }}" method="POST">
+    {{ form.csrf_token }}
+    <a class="btn btn-outline-dark btn-xl" href="/services/list">&#x3c;&#x3c; Volver al listado</a>
+    {{ form.submit(value="ELIMINAR", class_="btn btn-danger btn-xl") }}
+</form>
+{% endblock %}

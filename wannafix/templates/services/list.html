@@ -1,0 +1,47 @@
+{% extends 'layouts/_base.html' %}
+
+{% block title %}
+Serveis
+{% endblock %}
+
+{% block content %}
+<table class="table table-bordered table-striped" style="background-color: #fefefe;">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>NOM</th>
+			<th>DESCRIPCIÓ</th>
+            <th>TEMPS (H)</th>
+            <th>TEMPS (D)</th>
+			<th>PREU</th>
+            <th>FOTO</th>
+			<th colspan="3">Accions</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for service in services %}
+		<tr>
+			<td>{{ service.id }}</td>
+			<td>{{ service.title }}</td>
+			<td>{{ service.description }}</td>
+			<td>{{ service.duration_hours }}</td>
+			<td>{{ service.duration_days }}</td>
+			<td>{{ service.price }}</td>
+            <td><img src="{{ service.photo }}" alt="{{ service.title }}" style="max-width: 100px;"></td>
+			<td>
+				<a href="/services/read/{{ service.id }}" alt="Visualitzar">👁️</a>
+			</td>
+			<td>
+				<a href="/services/update/{{ service.id }}" alt="Editar">📝</a>
+			</td>
+			<td>
+				<a href="/services/delete/{{ service.id }}" alt="Eliminar">❌</a>
+			</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+{% if current_user.is_action_allowed_to_service(Action.services_create) %}
+<a class="btn btn-secondary btn-xl" href="/services/create">Crear un nou servei</a>
+{% endif %}
+{% endblock %}

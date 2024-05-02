@@ -1,0 +1,34 @@
+{% extends 'layouts/_base.html' %}
+
+{% block title %}
+Usuaris
+{% endblock %}
+
+{% block content %}
+<table class="table table-bordered table-striped" style="background-color: #fefefe;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOM</th>
+            <th>EMAIL</th>
+            <th>ROL</th>
+            <th>DATA</th> 
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role }}</td>
+            <td> 
+                <a class="btn btn-outline-primary btn-sm" href="/admin/users/{{ user.id }}/download">Descarregar info</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a class="btn btn-outline-dark btn-xl" href="/admin">&#x3c;&#x3c; Tornar la pàgina d'administració</a>
+
+{% endblock %}

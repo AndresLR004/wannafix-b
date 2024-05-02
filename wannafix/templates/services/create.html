@@ -1,0 +1,50 @@
+{% extends 'layouts/_base.html' %}
+{% from "partials/_formhelpers.html" import render_errors %}
+
+{% block title %}
+Nuevo servicio
+{% endblock %}
+
+{% block content %}
+<h3>Introduce los datos</h3>
+<form action="/services/create" method="POST" enctype="multipart/form-data">
+    {{ form.csrf_token }}
+    <div class="form-floating mb-3">
+        {{ form.title(class_="form-control") }}
+        {{ form.title.label(class_="form-label") }}
+    </div>
+    <div class="form-floating mb-3">
+        {{ form.description(class_="form-control") }}
+        {{ form.description.label(class_="form-label") }}
+    </div>
+    <div class="form-floating mb-3">
+        {{ form.photo_file(class_="form-control") }}
+        {{ form.photo_file.label(class_="form-label") }}
+    </div>
+    <div class="form-floating mb-3">
+        {{ form.price(class_="form-control") }}
+        {{ form.price.label(class_="form-label") }}
+    </div>
+    <div class="form-floating mb-3">
+        {{ form.duration_hours(class_="form-control") }}
+        {{ form.duration_hours.label(class_="form-label") }}
+    </div>
+    <div class="form-floating mb-3">
+        {{ form.duration_days(class_="form-control") }}
+        {{ form.duration_days.label(class_="form-label") }}
+    </div>
+    <div class="form-floating mb-3">
+        {{ form.category_id(class_="form-control") }}
+        {{ form.category_id.label(class_="form-label") }}
+    </div>
+    <div class="form-floating mb-3">
+        {{ form.status_id(class_="form-control") }}
+        {{ form.status_id.label }}
+        </div>
+    <div class="form-floating mb-3">
+        {{ form.submit(value="CREAR", class_="btn btn-primary btn-xl") }}
+    </div>
+    <a class="btn btn-outline-dark btn-xl" href="/services/list">&#x3c;&#x3c; Volver al listado</a>
+    {{ render_errors(form) }}
+</form>
+{% endblock %}
