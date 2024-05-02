@@ -1,0 +1,25 @@
+USUARIOS
+
+1.I Descarregar totes les dades i dret a l'oblit
+
+Se li ha de donar a l'usuari l'opció de descarregar totes les seves dades en format CSV o JSON, incloent totes les dades associades al seu usuari.
+També se li ha de donar a l'usuari l'opció d'esborrar totes les seves dades. Ha de demanar confirmació per fer-ho, demanant a l'usuari que escrigui 
+una frase dient "Sí, vull que s'esborrin totes les meves dades". Un cop fet, s'esborren totes les dades i es tanca la sessió de l'usuari.  
+Aquesta frase de confirmació ha de ser configurable al fitxer de propietats .env.
+
+
+Falta hacer la confirmacion del eliminar ya que esta a medias y esta parte estara acabada
+
+
+FUNCIONALIDAD
+
+App per contractar serveis de reparacions a la llar que ofereixen treballadors autònoms (freelance). 
+Cada treballador/a pot oferir un o més serveis. Cada servei té una durada (en hores o dies) i l’usuari/a 
+ha de sol·licitar un servei específic amb una data d’inici de prestació del servei. 
+
+
+Por donde me he quedado:    
+    El create esta a medias ya que coge los datos pero no los almacena en la base de datos
+    Falta hacer:
+    - Delete
+    - Update
